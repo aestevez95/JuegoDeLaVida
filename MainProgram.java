@@ -61,7 +61,7 @@ public class MainProgram {
 		mapa[5][4].setState(true);
 		mapa[6][5].setState(true);
 		
-		// Representar estado inicial
+		// Representación gráfica del estado inicial
 		new Tablero(mapa);
 		
 		
@@ -82,7 +82,7 @@ public class MainProgram {
 						mapa[i][j].update(mapa);
 					}
 				}
-			// Plano gráfico para representar el mapa
+			// Representación gráfica del mapa actual
 			new Tablero(mapa);
 		}
 	}
@@ -95,11 +95,12 @@ public class MainProgram {
  */
 class Tablero extends JFrame {
 
+	// Colores
 	final static Color colorViva = new Color(255,204,51);
 	final static Color colorMuerta = new Color(51,102,255);
 	final static Color colorBorde = Color.black;
 
-
+	// Constructor
 	public Tablero(Celda[][] mapa) {
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -108,11 +109,13 @@ class Tablero extends JFrame {
 		
 		final Celda[][] mapaPropio = mapa;
 
+		// Añadir título
 		getContentPane().add(
 				"North",
 				new JLabel("Game of life",
 						SwingConstants.CENTER));
 
+		// Añadir tablero
 		getContentPane().add("Center", new JPanel() {
 
 			double factor_profundidad = 100;
@@ -166,6 +169,7 @@ class Tablero extends JFrame {
 				pol.addPoint(p3.x, p3.y);
 				pol.addPoint(p4.x, p4.y);
 
+				// Añadir colores
 				g.setColor(color);
 				g.fillPolygon(pol);
 				g.setColor(colorBorde);
